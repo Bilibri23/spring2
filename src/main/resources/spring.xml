@@ -1,0 +1,25 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <!--  <bean id="alien" class ="com.brian.Alien" scope="prototype"> </bean> -->
+    <!-- the value 20 is assigned to variable age through the object alien  and its setter since you are calling the setter method to assign the value -->
+
+    <bean id="alien" class ="com.brian.Alien">
+<!--        <constructor-arg value="20" />-->
+<!--        <constructor-arg ref ="laptop"/>-->
+<!--        <property name="laptop" ref="laptop"/>-->
+
+        <property name="age" value="21"/>
+        <property name="com" ref="com1"/>
+    </bean>
+
+    <bean id="laptop" class ="com.brian.Laptop">
+    </bean>
+    <bean id = "com1" class="com.brian.Desktop" lazy-init="true">
+<!-- desktop object will be created so u use lazy-init to partially load
+it will be created only when  u explicitly create it even though its scope is singleton-->
+    </bean>
+</beans>
